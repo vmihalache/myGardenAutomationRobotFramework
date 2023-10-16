@@ -1,0 +1,764 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.8.10 on linux)" generated="20231013 22:25:30.082" rpa="false" schemaversion="4">
+<suite id="s1" name="flowerApk" source="/home/valentin.mihalache/Downloads/flowerApk">
+<suite id="s1-s1" name="Test" source="/home/valentin.mihalache/Downloads/flowerApk/test.robot">
+<kw name="Set Library Search Order" library="BuiltIn" type="SETUP">
+<arg>AppiumLibrary</arg>
+<arg>SeleniumLibrary</arg>
+<arg>Collections</arg>
+<arg>XML</arg>
+<doc>Sets the resolution order to use when a name matches multiple keywords.</doc>
+<status status="PASS" starttime="20231013 22:25:30.226" endtime="20231013 22:25:30.226"/>
+</kw>
+<test id="s1-s1-t1" name="Open Test Application" line="32">
+<kw name="Open Test Application">
+<kw name="Open Application" library="AppiumLibrary">
+<arg>http://127.0.0.1:4723</arg>
+<arg>automationName=${ANDROID_AUTOMATION_NAME}</arg>
+<arg>platformName=${PLATFORM_NAME}</arg>
+<arg>app=${APP}</arg>
+<arg>appPackage=${APP_PACKAGE}</arg>
+<arg>appActivity=${APP_ACTIVITY}</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |
+| strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
+<status status="PASS" starttime="20231013 22:25:30.227" endtime="20231013 22:25:38.807"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${index}</var>
+<value>2</value>
+<value>9</value>
+<iter>
+<var name="${index}">2</var>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${plantList}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<msg timestamp="20231013 22:25:41.630" level="INFO">xpath criteria: //android.view.View[@content-desc="Plant list"]</msg>
+<status status="PASS" starttime="20231013 22:25:38.808" endtime="20231013 22:25:41.630"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${plantList}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20231013 22:25:41.633" level="INFO">Clicking element '//android.view.View[@content-desc="Plant list"]'.</msg>
+<msg timestamp="20231013 22:25:42.733" level="INFO">xpath criteria: //android.view.View[@content-desc="Plant list"]</msg>
+<status status="PASS" starttime="20231013 22:25:41.630" endtime="20231013 22:25:42.734"/>
+</kw>
+<kw name="Get Webelements" library="AppiumLibrary">
+<var>@{elements}</var>
+<arg>${elWid}</arg>
+<doc>Returns list of [http://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.remote.webelement|WebElement] objects matching ``locator``.</doc>
+<msg timestamp="20231013 22:25:44.719" level="INFO">xpath criteria: //android.widget.TextView</msg>
+<msg timestamp="20231013 22:25:44.719" level="INFO">@{elements} = [ &lt;appium.webdriver.webelement.WebElement (session="fe35261e-a88f-4961-9862-2bad9b323421", element="00000000-0000-048d-0000-001b00000004")&gt; | &lt;appium.webdriver.webelement.WebElement (session="fe35261e...</msg>
+<status status="PASS" starttime="20231013 22:25:42.734" endtime="20231013 22:25:44.719"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${elements}[${index}]</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20231013 22:25:44.722" level="INFO">Clicking element '&lt;appium.webdriver.webelement.WebElement (session="fe35261e-a88f-4961-9862-2bad9b323421", element="00000000-0000-048d-0000-003d00000004")&gt;'.</msg>
+<status status="PASS" starttime="20231013 22:25:44.719" endtime="20231013 22:25:44.997"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${len}</var>
+<arg>${len} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231013 22:25:44.998" level="INFO">${len} = 1</msg>
+<status status="PASS" starttime="20231013 22:25:44.997" endtime="20231013 22:25:44.998"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${addPlant}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<msg timestamp="20231013 22:25:46.951" level="INFO">xpath criteria: //android.widget.Button[@content-desc="Add plant"]</msg>
+<status status="PASS" starttime="20231013 22:25:44.998" endtime="20231013 22:25:46.952"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${addPlant}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20231013 22:25:46.957" level="INFO">Clicking element '//android.widget.Button[@content-desc="Add plant"]'.</msg>
+<msg timestamp="20231013 22:25:47.533" level="INFO">xpath criteria: //android.widget.Button[@content-desc="Add plant"]</msg>
+<status status="PASS" starttime="20231013 22:25:46.952" endtime="20231013 22:25:47.534"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${backFromPlant}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20231013 22:25:47.539" level="INFO">Clicking element '//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.widget.Button'.</msg>
+<msg timestamp="20231013 22:25:48.698" level="INFO">xpath criteria: //hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.widget.Button</msg>
+<status status="PASS" starttime="20231013 22:25:47.534" endtime="20231013 22:25:48.698"/>
+</kw>
+<kw name="Get Webelements" library="AppiumLibrary">
+<var>@{elements}</var>
+<arg>${elWid}</arg>
+<doc>Returns list of [http://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.remote.webelement|WebElement] objects matching ``locator``.</doc>
+<msg timestamp="20231013 22:25:50.416" level="INFO">xpath criteria: //android.widget.TextView</msg>
+<msg timestamp="20231013 22:25:50.416" level="INFO">@{elements} = [ &lt;appium.webdriver.webelement.WebElement (session="fe35261e-a88f-4961-9862-2bad9b323421", element="00000000-0000-048d-0000-00b200000004")&gt; | &lt;appium.webdriver.webelement.WebElement (session="fe35261e...</msg>
+<status status="PASS" starttime="20231013 22:25:48.698" endtime="20231013 22:25:50.416"/>
+</kw>
+<kw name="Swipe By Percent" library="AppiumLibrary">
+<arg>0</arg>
+<arg>21</arg>
+<arg>0</arg>
+<arg>0</arg>
+<arg>1000</arg>
+<doc>Swipe from one percent of the screen to another percent, for an optional duration.
+Normal swipe fails to scale for different screen resolutions, this can be avoided using percent.</doc>
+<status status="PASS" starttime="20231013 22:25:50.417" endtime="20231013 22:25:54.630"/>
+</kw>
+<status status="PASS" starttime="20231013 22:25:38.808" endtime="20231013 22:25:54.630"/>
+</iter>
+<iter>
+<var name="${index}">3</var>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${plantList}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<msg timestamp="20231013 22:25:55.723" level="INFO">xpath criteria: //android.view.View[@content-desc="Plant list"]</msg>
+<status status="PASS" starttime="20231013 22:25:54.631" endtime="20231013 22:25:55.723"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${plantList}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20231013 22:25:55.728" level="INFO">Clicking element '//android.view.View[@content-desc="Plant list"]'.</msg>
+<msg timestamp="20231013 22:25:56.599" level="INFO">xpath criteria: //android.view.View[@content-desc="Plant list"]</msg>
+<status status="PASS" starttime="20231013 22:25:55.724" endtime="20231013 22:25:56.600"/>
+</kw>
+<kw name="Get Webelements" library="AppiumLibrary">
+<var>@{elements}</var>
+<arg>${elWid}</arg>
+<doc>Returns list of [http://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.remote.webelement|WebElement] objects matching ``locator``.</doc>
+<msg timestamp="20231013 22:25:57.419" level="INFO">xpath criteria: //android.widget.TextView</msg>
+<msg timestamp="20231013 22:25:57.420" level="INFO">@{elements} = [ &lt;appium.webdriver.webelement.WebElement (session="fe35261e-a88f-4961-9862-2bad9b323421", element="00000000-0000-048d-0000-00b200000004")&gt; | &lt;appium.webdriver.webelement.WebElement (session="fe35261e...</msg>
+<status status="PASS" starttime="20231013 22:25:56.600" endtime="20231013 22:25:57.420"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${elements}[${index}]</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20231013 22:25:57.425" level="INFO">Clicking element '&lt;appium.webdriver.webelement.WebElement (session="fe35261e-a88f-4961-9862-2bad9b323421", element="00000000-0000-048d-0000-00cf00000004")&gt;'.</msg>
+<status status="PASS" starttime="20231013 22:25:57.420" endtime="20231013 22:25:58.526"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${len}</var>
+<arg>${len} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231013 22:25:58.526" level="INFO">${len} = 2</msg>
+<status status="PASS" starttime="20231013 22:25:58.526" endtime="20231013 22:25:58.526"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${addPlant}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<msg timestamp="20231013 22:25:58.702" level="INFO">xpath criteria: //android.widget.Button[@content-desc="Add plant"]</msg>
+<status status="PASS" starttime="20231013 22:25:58.527" endtime="20231013 22:25:58.702"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${addPlant}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20231013 22:25:58.706" level="INFO">Clicking element '//android.widget.Button[@content-desc="Add plant"]'.</msg>
+<msg timestamp="20231013 22:25:58.908" level="INFO">xpath criteria: //android.widget.Button[@content-desc="Add plant"]</msg>
+<status status="PASS" starttime="20231013 22:25:58.703" endtime="20231013 22:25:58.909"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${backFromPlant}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20231013 22:25:58.911" level="INFO">Clicking element '//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.widget.Button'.</msg>
+<msg timestamp="20231013 22:25:59.680" level="INFO">xpath criteria: //hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.widget.Button</msg>
+<status status="PASS" starttime="20231013 22:25:58.909" endtime="20231013 22:25:59.680"/>
+</kw>
+<kw name="Get Webelements" library="AppiumLibrary">
+<var>@{elements}</var>
+<arg>${elWid}</arg>
+<doc>Returns list of [http://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.remote.webelement|WebElement] objects matching ``locator``.</doc>
+<msg timestamp="20231013 22:26:00.226" level="INFO">xpath criteria: //android.widget.TextView</msg>
+<msg timestamp="20231013 22:26:00.227" level="INFO">@{elements} = [ &lt;appium.webdriver.webelement.WebElement (session="fe35261e-a88f-4961-9862-2bad9b323421", element="00000000-0000-048d-0000-016a00000004")&gt; | &lt;appium.webdriver.webelement.WebElement (session="fe35261e...</msg>
+<status status="PASS" starttime="20231013 22:25:59.681" endtime="20231013 22:26:00.227"/>
+</kw>
+<kw name="Swipe By Percent" library="AppiumLibrary">
+<arg>0</arg>
+<arg>21</arg>
+<arg>0</arg>
+<arg>0</arg>
+<arg>1000</arg>
+<doc>Swipe from one percent of the screen to another percent, for an optional duration.
+Normal swipe fails to scale for different screen resolutions, this can be avoided using percent.</doc>
+<status status="PASS" starttime="20231013 22:26:00.227" endtime="20231013 22:26:02.279"/>
+</kw>
+<status status="PASS" starttime="20231013 22:25:54.630" endtime="20231013 22:26:02.280"/>
+</iter>
+<iter>
+<var name="${index}">4</var>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${plantList}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<msg timestamp="20231013 22:26:02.592" level="INFO">xpath criteria: //android.view.View[@content-desc="Plant list"]</msg>
+<status status="PASS" starttime="20231013 22:26:02.280" endtime="20231013 22:26:02.592"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${plantList}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20231013 22:26:02.595" level="INFO">Clicking element '//android.view.View[@content-desc="Plant list"]'.</msg>
+<msg timestamp="20231013 22:26:02.877" level="INFO">xpath criteria: //android.view.View[@content-desc="Plant list"]</msg>
+<status status="PASS" starttime="20231013 22:26:02.592" endtime="20231013 22:26:02.877"/>
+</kw>
+<kw name="Get Webelements" library="AppiumLibrary">
+<var>@{elements}</var>
+<arg>${elWid}</arg>
+<doc>Returns list of [http://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.remote.webelement|WebElement] objects matching ``locator``.</doc>
+<msg timestamp="20231013 22:26:03.272" level="INFO">xpath criteria: //android.widget.TextView</msg>
+<msg timestamp="20231013 22:26:03.272" level="INFO">@{elements} = [ &lt;appium.webdriver.webelement.WebElement (session="fe35261e-a88f-4961-9862-2bad9b323421", element="00000000-0000-048d-0000-016a00000004")&gt; | &lt;appium.webdriver.webelement.WebElement (session="fe35261e...</msg>
+<status status="PASS" starttime="20231013 22:26:02.877" endtime="20231013 22:26:03.272"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${elements}[${index}]</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20231013 22:26:03.276" level="INFO">Clicking element '&lt;appium.webdriver.webelement.WebElement (session="fe35261e-a88f-4961-9862-2bad9b323421", element="00000000-0000-048d-0000-019f00000004")&gt;'.</msg>
+<status status="PASS" starttime="20231013 22:26:03.272" endtime="20231013 22:26:04.244"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${len}</var>
+<arg>${len} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231013 22:26:04.246" level="INFO">${len} = 3</msg>
+<status status="PASS" starttime="20231013 22:26:04.245" endtime="20231013 22:26:04.246"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${addPlant}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<msg timestamp="20231013 22:26:04.359" level="INFO">xpath criteria: //android.widget.Button[@content-desc="Add plant"]</msg>
+<status status="PASS" starttime="20231013 22:26:04.246" endtime="20231013 22:26:04.359"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${addPlant}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20231013 22:26:04.361" level="INFO">Clicking element '//android.widget.Button[@content-desc="Add plant"]'.</msg>
+<msg timestamp="20231013 22:26:04.510" level="INFO">xpath criteria: //android.widget.Button[@content-desc="Add plant"]</msg>
+<status status="PASS" starttime="20231013 22:26:04.359" endtime="20231013 22:26:04.510"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${backFromPlant}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20231013 22:26:04.513" level="INFO">Clicking element '//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.widget.Button'.</msg>
+<msg timestamp="20231013 22:26:05.314" level="INFO">xpath criteria: //hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.widget.Button</msg>
+<status status="PASS" starttime="20231013 22:26:04.510" endtime="20231013 22:26:05.314"/>
+</kw>
+<kw name="Get Webelements" library="AppiumLibrary">
+<var>@{elements}</var>
+<arg>${elWid}</arg>
+<doc>Returns list of [http://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.remote.webelement|WebElement] objects matching ``locator``.</doc>
+<msg timestamp="20231013 22:26:05.879" level="INFO">xpath criteria: //android.widget.TextView</msg>
+<msg timestamp="20231013 22:26:05.879" level="INFO">@{elements} = [ &lt;appium.webdriver.webelement.WebElement (session="fe35261e-a88f-4961-9862-2bad9b323421", element="00000000-0000-048d-0000-022b00000004")&gt; | &lt;appium.webdriver.webelement.WebElement (session="fe35261e...</msg>
+<status status="PASS" starttime="20231013 22:26:05.315" endtime="20231013 22:26:05.879"/>
+</kw>
+<kw name="Swipe By Percent" library="AppiumLibrary">
+<arg>0</arg>
+<arg>21</arg>
+<arg>0</arg>
+<arg>0</arg>
+<arg>1000</arg>
+<doc>Swipe from one percent of the screen to another percent, for an optional duration.
+Normal swipe fails to scale for different screen resolutions, this can be avoided using percent.</doc>
+<status status="PASS" starttime="20231013 22:26:05.879" endtime="20231013 22:26:07.394"/>
+</kw>
+<status status="PASS" starttime="20231013 22:26:02.280" endtime="20231013 22:26:07.394"/>
+</iter>
+<iter>
+<var name="${index}">5</var>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${plantList}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<msg timestamp="20231013 22:26:08.040" level="INFO">xpath criteria: //android.view.View[@content-desc="Plant list"]</msg>
+<status status="PASS" starttime="20231013 22:26:07.395" endtime="20231013 22:26:08.041"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${plantList}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20231013 22:26:08.044" level="INFO">Clicking element '//android.view.View[@content-desc="Plant list"]'.</msg>
+<msg timestamp="20231013 22:26:08.481" level="INFO">xpath criteria: //android.view.View[@content-desc="Plant list"]</msg>
+<status status="PASS" starttime="20231013 22:26:08.041" endtime="20231013 22:26:08.481"/>
+</kw>
+<kw name="Get Webelements" library="AppiumLibrary">
+<var>@{elements}</var>
+<arg>${elWid}</arg>
+<doc>Returns list of [http://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.remote.webelement|WebElement] objects matching ``locator``.</doc>
+<msg timestamp="20231013 22:26:08.903" level="INFO">xpath criteria: //android.widget.TextView</msg>
+<msg timestamp="20231013 22:26:08.903" level="INFO">@{elements} = [ &lt;appium.webdriver.webelement.WebElement (session="fe35261e-a88f-4961-9862-2bad9b323421", element="00000000-0000-048d-0000-022b00000004")&gt; | &lt;appium.webdriver.webelement.WebElement (session="fe35261e...</msg>
+<status status="PASS" starttime="20231013 22:26:08.482" endtime="20231013 22:26:08.904"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${elements}[${index}]</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20231013 22:26:08.906" level="INFO">Clicking element '&lt;appium.webdriver.webelement.WebElement (session="fe35261e-a88f-4961-9862-2bad9b323421", element="00000000-0000-048d-0000-026800000004")&gt;'.</msg>
+<status status="PASS" starttime="20231013 22:26:08.904" endtime="20231013 22:26:09.070"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${len}</var>
+<arg>${len} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231013 22:26:09.072" level="INFO">${len} = 4</msg>
+<status status="PASS" starttime="20231013 22:26:09.071" endtime="20231013 22:26:09.072"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${addPlant}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<msg timestamp="20231013 22:26:10.842" level="INFO">xpath criteria: //android.widget.Button[@content-desc="Add plant"]</msg>
+<status status="PASS" starttime="20231013 22:26:09.072" endtime="20231013 22:26:10.842"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${addPlant}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20231013 22:26:10.851" level="INFO">Clicking element '//android.widget.Button[@content-desc="Add plant"]'.</msg>
+<msg timestamp="20231013 22:26:11.313" level="INFO">xpath criteria: //android.widget.Button[@content-desc="Add plant"]</msg>
+<status status="PASS" starttime="20231013 22:26:10.843" endtime="20231013 22:26:11.313"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${backFromPlant}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20231013 22:26:11.317" level="INFO">Clicking element '//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.widget.Button'.</msg>
+<msg timestamp="20231013 22:26:12.398" level="INFO">xpath criteria: //hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.widget.Button</msg>
+<status status="PASS" starttime="20231013 22:26:11.313" endtime="20231013 22:26:12.398"/>
+</kw>
+<kw name="Get Webelements" library="AppiumLibrary">
+<var>@{elements}</var>
+<arg>${elWid}</arg>
+<doc>Returns list of [http://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.remote.webelement|WebElement] objects matching ``locator``.</doc>
+<msg timestamp="20231013 22:26:13.613" level="INFO">xpath criteria: //android.widget.TextView</msg>
+<msg timestamp="20231013 22:26:13.613" level="INFO">@{elements} = [ &lt;appium.webdriver.webelement.WebElement (session="fe35261e-a88f-4961-9862-2bad9b323421", element="00000000-0000-048d-0000-02ea00000004")&gt; | &lt;appium.webdriver.webelement.WebElement (session="fe35261e...</msg>
+<status status="PASS" starttime="20231013 22:26:12.399" endtime="20231013 22:26:13.613"/>
+</kw>
+<kw name="Swipe By Percent" library="AppiumLibrary">
+<arg>0</arg>
+<arg>21</arg>
+<arg>0</arg>
+<arg>0</arg>
+<arg>1000</arg>
+<doc>Swipe from one percent of the screen to another percent, for an optional duration.
+Normal swipe fails to scale for different screen resolutions, this can be avoided using percent.</doc>
+<status status="PASS" starttime="20231013 22:26:13.613" endtime="20231013 22:26:14.991"/>
+</kw>
+<status status="PASS" starttime="20231013 22:26:07.395" endtime="20231013 22:26:14.991"/>
+</iter>
+<iter>
+<var name="${index}">6</var>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${plantList}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<msg timestamp="20231013 22:26:15.158" level="INFO">xpath criteria: //android.view.View[@content-desc="Plant list"]</msg>
+<status status="PASS" starttime="20231013 22:26:14.991" endtime="20231013 22:26:15.158"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${plantList}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20231013 22:26:15.160" level="INFO">Clicking element '//android.view.View[@content-desc="Plant list"]'.</msg>
+<msg timestamp="20231013 22:26:15.341" level="INFO">xpath criteria: //android.view.View[@content-desc="Plant list"]</msg>
+<status status="PASS" starttime="20231013 22:26:15.158" endtime="20231013 22:26:15.341"/>
+</kw>
+<kw name="Get Webelements" library="AppiumLibrary">
+<var>@{elements}</var>
+<arg>${elWid}</arg>
+<doc>Returns list of [http://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.remote.webelement|WebElement] objects matching ``locator``.</doc>
+<msg timestamp="20231013 22:26:15.619" level="INFO">xpath criteria: //android.widget.TextView</msg>
+<msg timestamp="20231013 22:26:15.619" level="INFO">@{elements} = [ &lt;appium.webdriver.webelement.WebElement (session="fe35261e-a88f-4961-9862-2bad9b323421", element="00000000-0000-048d-0000-02ea00000004")&gt; | &lt;appium.webdriver.webelement.WebElement (session="fe35261e...</msg>
+<status status="PASS" starttime="20231013 22:26:15.341" endtime="20231013 22:26:15.619"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${elements}[${index}]</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20231013 22:26:15.622" level="INFO">Clicking element '&lt;appium.webdriver.webelement.WebElement (session="fe35261e-a88f-4961-9862-2bad9b323421", element="00000000-0000-048d-0000-032f00000004")&gt;'.</msg>
+<status status="PASS" starttime="20231013 22:26:15.620" endtime="20231013 22:26:16.455"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${len}</var>
+<arg>${len} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231013 22:26:16.457" level="INFO">${len} = 5</msg>
+<status status="PASS" starttime="20231013 22:26:16.456" endtime="20231013 22:26:16.457"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${addPlant}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<msg timestamp="20231013 22:26:16.560" level="INFO">xpath criteria: //android.widget.Button[@content-desc="Add plant"]</msg>
+<status status="PASS" starttime="20231013 22:26:16.458" endtime="20231013 22:26:16.560"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${addPlant}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20231013 22:26:16.562" level="INFO">Clicking element '//android.widget.Button[@content-desc="Add plant"]'.</msg>
+<msg timestamp="20231013 22:26:16.692" level="INFO">xpath criteria: //android.widget.Button[@content-desc="Add plant"]</msg>
+<status status="PASS" starttime="20231013 22:26:16.561" endtime="20231013 22:26:16.692"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${backFromPlant}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20231013 22:26:16.694" level="INFO">Clicking element '//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.widget.Button'.</msg>
+<msg timestamp="20231013 22:26:17.386" level="INFO">xpath criteria: //hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.widget.Button</msg>
+<status status="PASS" starttime="20231013 22:26:16.692" endtime="20231013 22:26:17.386"/>
+</kw>
+<kw name="Get Webelements" library="AppiumLibrary">
+<var>@{elements}</var>
+<arg>${elWid}</arg>
+<doc>Returns list of [http://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.remote.webelement|WebElement] objects matching ``locator``.</doc>
+<msg timestamp="20231013 22:26:17.707" level="INFO">xpath criteria: //android.widget.TextView</msg>
+<msg timestamp="20231013 22:26:17.707" level="INFO">@{elements} = [ &lt;appium.webdriver.webelement.WebElement (session="fe35261e-a88f-4961-9862-2bad9b323421", element="00000000-0000-048d-0000-03a300000004")&gt; | &lt;appium.webdriver.webelement.WebElement (session="fe35261e...</msg>
+<status status="PASS" starttime="20231013 22:26:17.386" endtime="20231013 22:26:17.707"/>
+</kw>
+<kw name="Swipe By Percent" library="AppiumLibrary">
+<arg>0</arg>
+<arg>21</arg>
+<arg>0</arg>
+<arg>0</arg>
+<arg>1000</arg>
+<doc>Swipe from one percent of the screen to another percent, for an optional duration.
+Normal swipe fails to scale for different screen resolutions, this can be avoided using percent.</doc>
+<status status="PASS" starttime="20231013 22:26:17.707" endtime="20231013 22:26:19.029"/>
+</kw>
+<status status="PASS" starttime="20231013 22:26:14.991" endtime="20231013 22:26:19.029"/>
+</iter>
+<iter>
+<var name="${index}">7</var>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${plantList}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<msg timestamp="20231013 22:26:19.250" level="INFO">xpath criteria: //android.view.View[@content-desc="Plant list"]</msg>
+<status status="PASS" starttime="20231013 22:26:19.029" endtime="20231013 22:26:19.250"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${plantList}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20231013 22:26:19.254" level="INFO">Clicking element '//android.view.View[@content-desc="Plant list"]'.</msg>
+<msg timestamp="20231013 22:26:19.458" level="INFO">xpath criteria: //android.view.View[@content-desc="Plant list"]</msg>
+<status status="PASS" starttime="20231013 22:26:19.250" endtime="20231013 22:26:19.458"/>
+</kw>
+<kw name="Get Webelements" library="AppiumLibrary">
+<var>@{elements}</var>
+<arg>${elWid}</arg>
+<doc>Returns list of [http://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.remote.webelement|WebElement] objects matching ``locator``.</doc>
+<msg timestamp="20231013 22:26:19.750" level="INFO">xpath criteria: //android.widget.TextView</msg>
+<msg timestamp="20231013 22:26:19.750" level="INFO">@{elements} = [ &lt;appium.webdriver.webelement.WebElement (session="fe35261e-a88f-4961-9862-2bad9b323421", element="00000000-0000-048d-0000-03a300000004")&gt; | &lt;appium.webdriver.webelement.WebElement (session="fe35261e...</msg>
+<status status="PASS" starttime="20231013 22:26:19.459" endtime="20231013 22:26:19.750"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${elements}[${index}]</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20231013 22:26:19.754" level="INFO">Clicking element '&lt;appium.webdriver.webelement.WebElement (session="fe35261e-a88f-4961-9862-2bad9b323421", element="00000000-0000-048d-0000-03f000000004")&gt;'.</msg>
+<status status="PASS" starttime="20231013 22:26:19.750" endtime="20231013 22:26:19.808"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${len}</var>
+<arg>${len} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231013 22:26:19.809" level="INFO">${len} = 6</msg>
+<status status="PASS" starttime="20231013 22:26:19.808" endtime="20231013 22:26:19.809"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${addPlant}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<msg timestamp="20231013 22:26:20.670" level="INFO">xpath criteria: //android.widget.Button[@content-desc="Add plant"]</msg>
+<status status="PASS" starttime="20231013 22:26:19.809" endtime="20231013 22:26:20.670"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${addPlant}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20231013 22:26:20.672" level="INFO">Clicking element '//android.widget.Button[@content-desc="Add plant"]'.</msg>
+<msg timestamp="20231013 22:26:20.793" level="INFO">xpath criteria: //android.widget.Button[@content-desc="Add plant"]</msg>
+<status status="PASS" starttime="20231013 22:26:20.670" endtime="20231013 22:26:20.793"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${backFromPlant}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20231013 22:26:20.797" level="INFO">Clicking element '//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.widget.Button'.</msg>
+<msg timestamp="20231013 22:26:21.448" level="INFO">xpath criteria: //hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.widget.Button</msg>
+<status status="PASS" starttime="20231013 22:26:20.793" endtime="20231013 22:26:21.448"/>
+</kw>
+<kw name="Get Webelements" library="AppiumLibrary">
+<var>@{elements}</var>
+<arg>${elWid}</arg>
+<doc>Returns list of [http://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.remote.webelement|WebElement] objects matching ``locator``.</doc>
+<msg timestamp="20231013 22:26:21.718" level="INFO">xpath criteria: //android.widget.TextView</msg>
+<msg timestamp="20231013 22:26:21.719" level="INFO">@{elements} = [ &lt;appium.webdriver.webelement.WebElement (session="fe35261e-a88f-4961-9862-2bad9b323421", element="00000000-0000-048d-0000-045300000004")&gt; | &lt;appium.webdriver.webelement.WebElement (session="fe35261e...</msg>
+<status status="PASS" starttime="20231013 22:26:21.448" endtime="20231013 22:26:21.719"/>
+</kw>
+<kw name="Swipe By Percent" library="AppiumLibrary">
+<arg>0</arg>
+<arg>21</arg>
+<arg>0</arg>
+<arg>0</arg>
+<arg>1000</arg>
+<doc>Swipe from one percent of the screen to another percent, for an optional duration.
+Normal swipe fails to scale for different screen resolutions, this can be avoided using percent.</doc>
+<status status="PASS" starttime="20231013 22:26:21.719" endtime="20231013 22:26:23.041"/>
+</kw>
+<status status="PASS" starttime="20231013 22:26:19.029" endtime="20231013 22:26:23.041"/>
+</iter>
+<iter>
+<var name="${index}">8</var>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${plantList}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<msg timestamp="20231013 22:26:23.280" level="INFO">xpath criteria: //android.view.View[@content-desc="Plant list"]</msg>
+<status status="PASS" starttime="20231013 22:26:23.042" endtime="20231013 22:26:23.280"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${plantList}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20231013 22:26:23.282" level="INFO">Clicking element '//android.view.View[@content-desc="Plant list"]'.</msg>
+<msg timestamp="20231013 22:26:23.443" level="INFO">xpath criteria: //android.view.View[@content-desc="Plant list"]</msg>
+<status status="PASS" starttime="20231013 22:26:23.280" endtime="20231013 22:26:23.443"/>
+</kw>
+<kw name="Get Webelements" library="AppiumLibrary">
+<var>@{elements}</var>
+<arg>${elWid}</arg>
+<doc>Returns list of [http://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.remote.webelement|WebElement] objects matching ``locator``.</doc>
+<msg timestamp="20231013 22:26:23.658" level="INFO">xpath criteria: //android.widget.TextView</msg>
+<msg timestamp="20231013 22:26:23.658" level="INFO">@{elements} = [ &lt;appium.webdriver.webelement.WebElement (session="fe35261e-a88f-4961-9862-2bad9b323421", element="00000000-0000-048d-0000-045300000004")&gt; | &lt;appium.webdriver.webelement.WebElement (session="fe35261e...</msg>
+<status status="PASS" starttime="20231013 22:26:23.443" endtime="20231013 22:26:23.658"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${elements}[${index}]</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20231013 22:26:23.663" level="INFO">Clicking element '&lt;appium.webdriver.webelement.WebElement (session="fe35261e-a88f-4961-9862-2bad9b323421", element="00000000-0000-048d-0000-04c600000004")&gt;'.</msg>
+<status status="PASS" starttime="20231013 22:26:23.659" endtime="20231013 22:26:24.493"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${len}</var>
+<arg>${len} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231013 22:26:24.494" level="INFO">${len} = 7</msg>
+<status status="PASS" starttime="20231013 22:26:24.493" endtime="20231013 22:26:24.494"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>${addPlant}</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<msg timestamp="20231013 22:26:24.594" level="INFO">xpath criteria: //android.widget.Button[@content-desc="Add plant"]</msg>
+<status status="PASS" starttime="20231013 22:26:24.494" endtime="20231013 22:26:24.594"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${addPlant}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20231013 22:26:24.596" level="INFO">Clicking element '//android.widget.Button[@content-desc="Add plant"]'.</msg>
+<msg timestamp="20231013 22:26:24.709" level="INFO">xpath criteria: //android.widget.Button[@content-desc="Add plant"]</msg>
+<status status="PASS" starttime="20231013 22:26:24.594" endtime="20231013 22:26:24.709"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${backFromPlant}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20231013 22:26:24.712" level="INFO">Clicking element '//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.widget.Button'.</msg>
+<msg timestamp="20231013 22:26:25.369" level="INFO">xpath criteria: //hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.widget.Button</msg>
+<status status="PASS" starttime="20231013 22:26:24.710" endtime="20231013 22:26:25.369"/>
+</kw>
+<kw name="Get Webelements" library="AppiumLibrary">
+<var>@{elements}</var>
+<arg>${elWid}</arg>
+<doc>Returns list of [http://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.remote.webelement|WebElement] objects matching ``locator``.</doc>
+<msg timestamp="20231013 22:26:25.588" level="INFO">xpath criteria: //android.widget.TextView</msg>
+<msg timestamp="20231013 22:26:25.589" level="INFO">@{elements} = [ &lt;appium.webdriver.webelement.WebElement (session="fe35261e-a88f-4961-9862-2bad9b323421", element="00000000-0000-048d-0000-050300000004")&gt; | &lt;appium.webdriver.webelement.WebElement (session="fe35261e...</msg>
+<status status="PASS" starttime="20231013 22:26:25.369" endtime="20231013 22:26:25.589"/>
+</kw>
+<kw name="Swipe By Percent" library="AppiumLibrary">
+<arg>0</arg>
+<arg>21</arg>
+<arg>0</arg>
+<arg>0</arg>
+<arg>1000</arg>
+<doc>Swipe from one percent of the screen to another percent, for an optional duration.
+Normal swipe fails to scale for different screen resolutions, this can be avoided using percent.</doc>
+<status status="PASS" starttime="20231013 22:26:25.589" endtime="20231013 22:26:26.927"/>
+</kw>
+<status status="PASS" starttime="20231013 22:26:23.042" endtime="20231013 22:26:26.927"/>
+</iter>
+<status status="PASS" starttime="20231013 22:25:38.807" endtime="20231013 22:26:26.927"/>
+</for>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${myGarden}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20231013 22:26:26.930" level="INFO">Clicking element '//android.widget.TextView[@text="My garden"]'.</msg>
+<msg timestamp="20231013 22:26:27.292" level="INFO">xpath criteria: //android.widget.TextView[@text="My garden"]</msg>
+<status status="PASS" starttime="20231013 22:26:26.928" endtime="20231013 22:26:27.293"/>
+</kw>
+<kw name="Get Source" library="AppiumLibrary">
+<var>${parsedXml}</var>
+<doc>Returns the entire source of the current page.</doc>
+<msg timestamp="20231013 22:26:28.317" level="INFO">${parsedXml} = &lt;?xml version='1.0' encoding='UTF-8' standalone='yes' ?&gt;
+&lt;hierarchy index="0" class="hierarchy" rotation="0" width="1080" height="2154"&gt;
+  &lt;android.widget.FrameLayout index="0" package="com.google.s...</msg>
+<status status="PASS" starttime="20231013 22:26:27.293" endtime="20231013 22:26:28.317"/>
+</kw>
+<kw name="Create File" library="OperatingSystem">
+<arg>/home/valentin.mihalache/Downloads/flowerApk/filewithvariable.txt</arg>
+<arg>${parsedXml}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<msg timestamp="20231013 22:26:28.318" level="INFO" html="true">Created file '&lt;a href="file:///home/valentin.mihalache/Downloads/flowerApk/filewithvariable.txt"&gt;/home/valentin.mihalache/Downloads/flowerApk/filewithvariable.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20231013 22:26:28.318" endtime="20231013 22:26:28.318"/>
+</kw>
+<kw name="Parse Xml" library="XML">
+<var>${basicXml}</var>
+<arg>/home/valentin.mihalache/Downloads/flowerApk/filewithvariable.txt</arg>
+<doc>Parses the given XML file or string into an element structure.</doc>
+<msg timestamp="20231013 22:26:28.320" level="INFO">${basicXml} = &lt;Element 'hierarchy' at 0x7fc1eb388770&gt;</msg>
+<status status="PASS" starttime="20231013 22:26:28.319" endtime="20231013 22:26:28.320"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${basicXml}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231013 22:26:28.320" level="INFO">&lt;Element 'hierarchy' at 0x7fc1eb388770&gt;</msg>
+<status status="PASS" starttime="20231013 22:26:28.320" endtime="20231013 22:26:28.320"/>
+</kw>
+<kw name="Get Child Elements" library="XML">
+<var>${fruits}</var>
+<arg>${basicXml}</arg>
+<arg>${selectedFruits}</arg>
+<doc>Returns the child elements of the specified element as a list.</doc>
+<msg timestamp="20231013 22:26:28.322" level="INFO">${fruits} = [&lt;Element 'android.view.View' at 0x7fc1eb3706d0&gt;, &lt;Element 'android.view.View' at 0x7fc1ec1a53b0&gt;, &lt;Element 'android.view.View' at 0x7fc1ec1a5e50&gt;, &lt;Element 'android.view.View' at 0x7fc1ec1a8900&gt;, &lt;El...</msg>
+<status status="PASS" starttime="20231013 22:26:28.320" endtime="20231013 22:26:28.322"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${fruits}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231013 22:26:28.322" level="INFO">[&lt;Element 'android.view.View' at 0x7fc1eb3706d0&gt;, &lt;Element 'android.view.View' at 0x7fc1ec1a53b0&gt;, &lt;Element 'android.view.View' at 0x7fc1ec1a5e50&gt;, &lt;Element 'android.view.View' at 0x7fc1ec1a8900&gt;, &lt;Element 'android.view.View' at 0x7fc1ec1ad400&gt;, &lt;Element 'android.view.View' at 0x7fc1ec1ad6d0&gt;]</msg>
+<status status="PASS" starttime="20231013 22:26:28.322" endtime="20231013 22:26:28.322"/>
+</kw>
+<for flavor="IN">
+<var>${individualFruits}</var>
+<value>@{fruits}</value>
+<iter>
+<var name="${individualFruits}">&lt;Element 'android.view.View' at 0x7fc1eb3706d0&gt;</var>
+<kw name="Log" library="BuiltIn">
+<arg>${individualFruits}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231013 22:26:28.323" level="INFO">&lt;Element 'android.view.View' at 0x7fc1eb3706d0&gt;</msg>
+<status status="PASS" starttime="20231013 22:26:28.323" endtime="20231013 22:26:28.323"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${numberOfFruits}</var>
+<arg>${numberOfFruits} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231013 22:26:28.324" level="INFO">${numberOfFruits} = 1</msg>
+<status status="PASS" starttime="20231013 22:26:28.323" endtime="20231013 22:26:28.324"/>
+</kw>
+<status status="PASS" starttime="20231013 22:26:28.322" endtime="20231013 22:26:28.324"/>
+</iter>
+<iter>
+<var name="${individualFruits}">&lt;Element 'android.view.View' at 0x7fc1ec1a53b0&gt;</var>
+<kw name="Log" library="BuiltIn">
+<arg>${individualFruits}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231013 22:26:28.324" level="INFO">&lt;Element 'android.view.View' at 0x7fc1ec1a53b0&gt;</msg>
+<status status="PASS" starttime="20231013 22:26:28.324" endtime="20231013 22:26:28.324"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${numberOfFruits}</var>
+<arg>${numberOfFruits} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231013 22:26:28.325" level="INFO">${numberOfFruits} = 2</msg>
+<status status="PASS" starttime="20231013 22:26:28.324" endtime="20231013 22:26:28.325"/>
+</kw>
+<status status="PASS" starttime="20231013 22:26:28.324" endtime="20231013 22:26:28.325"/>
+</iter>
+<iter>
+<var name="${individualFruits}">&lt;Element 'android.view.View' at 0x7fc1ec1a5e50&gt;</var>
+<kw name="Log" library="BuiltIn">
+<arg>${individualFruits}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231013 22:26:28.325" level="INFO">&lt;Element 'android.view.View' at 0x7fc1ec1a5e50&gt;</msg>
+<status status="PASS" starttime="20231013 22:26:28.325" endtime="20231013 22:26:28.325"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${numberOfFruits}</var>
+<arg>${numberOfFruits} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231013 22:26:28.326" level="INFO">${numberOfFruits} = 3</msg>
+<status status="PASS" starttime="20231013 22:26:28.325" endtime="20231013 22:26:28.326"/>
+</kw>
+<status status="PASS" starttime="20231013 22:26:28.325" endtime="20231013 22:26:28.326"/>
+</iter>
+<iter>
+<var name="${individualFruits}">&lt;Element 'android.view.View' at 0x7fc1ec1a8900&gt;</var>
+<kw name="Log" library="BuiltIn">
+<arg>${individualFruits}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231013 22:26:28.326" level="INFO">&lt;Element 'android.view.View' at 0x7fc1ec1a8900&gt;</msg>
+<status status="PASS" starttime="20231013 22:26:28.326" endtime="20231013 22:26:28.326"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${numberOfFruits}</var>
+<arg>${numberOfFruits} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231013 22:26:28.327" level="INFO">${numberOfFruits} = 4</msg>
+<status status="PASS" starttime="20231013 22:26:28.326" endtime="20231013 22:26:28.327"/>
+</kw>
+<status status="PASS" starttime="20231013 22:26:28.326" endtime="20231013 22:26:28.327"/>
+</iter>
+<iter>
+<var name="${individualFruits}">&lt;Element 'android.view.View' at 0x7fc1ec1ad400&gt;</var>
+<kw name="Log" library="BuiltIn">
+<arg>${individualFruits}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231013 22:26:28.327" level="INFO">&lt;Element 'android.view.View' at 0x7fc1ec1ad400&gt;</msg>
+<status status="PASS" starttime="20231013 22:26:28.327" endtime="20231013 22:26:28.327"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${numberOfFruits}</var>
+<arg>${numberOfFruits} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231013 22:26:28.328" level="INFO">${numberOfFruits} = 5</msg>
+<status status="PASS" starttime="20231013 22:26:28.327" endtime="20231013 22:26:28.328"/>
+</kw>
+<status status="PASS" starttime="20231013 22:26:28.327" endtime="20231013 22:26:28.328"/>
+</iter>
+<iter>
+<var name="${individualFruits}">&lt;Element 'android.view.View' at 0x7fc1ec1ad6d0&gt;</var>
+<kw name="Log" library="BuiltIn">
+<arg>${individualFruits}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231013 22:26:28.328" level="INFO">&lt;Element 'android.view.View' at 0x7fc1ec1ad6d0&gt;</msg>
+<status status="PASS" starttime="20231013 22:26:28.328" endtime="20231013 22:26:28.328"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${numberOfFruits}</var>
+<arg>${numberOfFruits} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231013 22:26:28.329" level="INFO">${numberOfFruits} = 6</msg>
+<status status="PASS" starttime="20231013 22:26:28.328" endtime="20231013 22:26:28.329"/>
+</kw>
+<status status="PASS" starttime="20231013 22:26:28.328" endtime="20231013 22:26:28.329"/>
+</iter>
+<status status="PASS" starttime="20231013 22:26:28.322" endtime="20231013 22:26:28.329"/>
+</for>
+<kw name="Log" library="BuiltIn">
+<arg>${len}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231013 22:26:28.329" level="INFO">7</msg>
+<status status="PASS" starttime="20231013 22:26:28.329" endtime="20231013 22:26:28.329"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${numberOfFruits}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231013 22:26:28.329" level="INFO">6</msg>
+<status status="PASS" starttime="20231013 22:26:28.329" endtime="20231013 22:26:28.329"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${len}</arg>
+<arg>${numberOfFruits+1}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" starttime="20231013 22:26:28.330" endtime="20231013 22:26:28.331"/>
+</kw>
+<status status="PASS" starttime="20231013 22:25:30.227" endtime="20231013 22:26:28.331"/>
+</kw>
+<status status="PASS" starttime="20231013 22:25:30.226" endtime="20231013 22:26:28.331"/>
+</test>
+<status status="PASS" starttime="20231013 22:25:30.101" endtime="20231013 22:26:28.332"/>
+</suite>
+<status status="PASS" starttime="20231013 22:25:30.083" endtime="20231013 22:26:28.333"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="flowerApk">flowerApk</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Test">flowerApk.Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
