@@ -4,7 +4,7 @@ The Robot Framework version is Robot Framework 6.1.1. The Appium version is 2.0.
 There are several keywords that handle the scrolling, adding of plants and then checking what has been sent to the My Garden view.
 
 Generate Random Flower 
-Generate a random number for the number of flower elements the user can add to the garden view
+    Generate a random number for the number of flower elements the user can add to the garden view
 
 Add a flower to my garden
     This keyword pushes the id of an added plant to the globalList array so that we know if it was already added.
